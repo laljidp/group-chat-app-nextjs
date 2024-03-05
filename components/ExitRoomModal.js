@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Modal,
   ModalBody,
@@ -12,24 +13,11 @@ import {
 import { useContext, useState } from 'react'
 import { UContext } from '../context/userContext'
 import { useRouter } from 'next/router'
-import { deleteRoom } from '../server/rooms.fb'
 
-export default function ({ isOpen, onClose }) {
+export default function DeleteRoomModel({ isOpen, onClose }) {
   const [isSubmitting, setSubmitting] = useState(false)
-  const { user, logoutRoom } = useContext(UContext)
+  const { user } = useContext(UContext)
   const router = useRouter()
-
-  const handleDeleteRoom = async () => {
-    /// Firebase function to delete the rooms and messages.
-    setSubmitting(true)
-    const result = await deleteRoom(user?.roomID)
-    if (result.success) {
-      logoutRoom(() => {
-        router.push('/')
-      })
-    }
-    setSubmitting(false)
-  }
 
   const handleExitRoom = () => {
     router.push('/')
@@ -47,10 +35,10 @@ export default function ({ isOpen, onClose }) {
         <ModalHeader>Exit Room</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Text fontWeight="600" mb="1rem">
+          <Box fontWeight="600" mb="1rem">
             You are about to exit this room{' '}
-            <Text color={'red.400'}>"{user?.title}"</Text> & Are you sure?
-          </Text>
+            <Text color={'red.400'}>{user?.title}</Text> & Are you sure?
+          </Box>
         </ModalBody>
         <ModalFooter>
           <Button

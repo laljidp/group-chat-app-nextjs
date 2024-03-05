@@ -58,6 +58,7 @@ export default function Home() {
   useEffect(() => {
     const rooms = getLocalRooms()
     setExistingRooms(rooms)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

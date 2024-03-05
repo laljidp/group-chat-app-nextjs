@@ -8,6 +8,7 @@ export default function ImagePlaceholder({ files = [], onRemoveImage }) {
     <Box display={'flex'} gap={2} padding={2} borderRadius={'4'}>
       {files.map((src, index) => (
         <Box
+          key={src}
           bg="gray.300"
           borderRadius={'4px'}
           padding={1}
