@@ -60,7 +60,7 @@ export default function InviteUserModal({ isOpen, onClose, invitee = [] }) {
         isClosable: true,
       })
       // update invitee to the firebase collection
-      const result = await updateInvittes(user?.roomID, {
+      await updateInvittes(user?.roomID, {
         number: phoneNumber,
         createdAt: new Date(),
       })
@@ -89,15 +89,15 @@ export default function InviteUserModal({ isOpen, onClose, invitee = [] }) {
               <Alert status="warning">
                 <AlertIcon />
                 <AlertDescription fontWeight={500}>
-                  You've exceeded SMS sending limits for the room. You can send
-                  a link by copying it.
+                  {`You've exceeded SMS sending limits for the room. You can send
+                  a link by copying it.`}
                 </AlertDescription>
               </Alert>
             </>
           ) : (
             <>
               <InputGroup visibility={'hidden'}>
-                <InputLeftAddon children="+91" />
+                <InputLeftAddon>+91</InputLeftAddon>
                 <Input
                   type="tel"
                   placeholder="Phone number"
