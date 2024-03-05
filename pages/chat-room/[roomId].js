@@ -11,7 +11,7 @@ import { Box, useDisclosure, useToast } from '@chakra-ui/react'
 import { UContext } from '../../context/userContext'
 import { getChatsByGroupQuery, saveMessage } from '../../server/message.db'
 import { onSnapshot } from 'firebase/firestore'
-import DeleteRoomModal from '../../components/DeleteRoomModal'
+import ExitRoomModal from '../../components/ExitRoomModal'
 
 const InviteUserModal = dynamic(
   () => import('../../components/InviteUserModal'),
@@ -119,6 +119,7 @@ export default function ChatRoom({ roomInfo }) {
       unsubscribeChats && unsubscribeChats()
       unsubscribeRoomInfo && unsubscribeRoomInfo()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if ((!room?.id || !user?.userName) && !userLoading) {
@@ -164,7 +165,7 @@ export default function ChatRoom({ roomInfo }) {
           />
         </Box>
       )}
-      <DeleteRoomModal
+      <ExitRoomModal
         isOpen={isOpen}
         onClose={onClose}
         // eslint-disable-next-line @typescript-eslint/no-empty-function

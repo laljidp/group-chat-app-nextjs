@@ -16,7 +16,7 @@ export default function RoomLists({ rooms = [], onRoomClick = () => {} }) {
       )}
       {rooms.map((room) => (
         <Box
-          key={room.id}
+          key={room.roomID}
           padding={'8px 15px'}
           bg="facebook.300"
           color={'#fff'}
