@@ -130,7 +130,6 @@ export default function ChatFooter({
                 name="attachment"
                 onChange={({ target }) => {
                   handleUploadFile(target?.files || [])
-                  fileRef.current.files = []
                 }}
               />
             </Box>

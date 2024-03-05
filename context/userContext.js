@@ -26,6 +26,7 @@ export default function UserContext({ children }) {
     setUser(userInfo)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const logoutRoom = (redirect = () => {}) => {
     localStorage.removeItem(USER_STORAGE_KEY)
     setUser({
@@ -59,7 +60,6 @@ export default function UserContext({ children }) {
     if (token) {
       const decryptStr = cryptr.decrypt(token)
       const userInfo = JSON.parse(decryptStr)
-      console.log('userInfo ====>>>', userInfo)
       if (userInfo) {
         setUser(userInfo)
       }

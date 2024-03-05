@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Box, Button, Grid, Text } from '@chakra-ui/react'
 
 export default function RoomLists({ rooms = [], onRoomClick = () => {} }) {
@@ -15,6 +16,7 @@ export default function RoomLists({ rooms = [], onRoomClick = () => {} }) {
       )}
       {rooms.map((room) => (
         <Box
+          key={room.id}
           padding={'8px 15px'}
           bg="facebook.300"
           color={'#fff'}

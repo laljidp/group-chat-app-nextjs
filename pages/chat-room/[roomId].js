@@ -167,6 +167,7 @@ export default function ChatRoom({ roomInfo }) {
       <DeleteRoomModal
         isOpen={isOpen}
         onClose={onClose}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         onDelete={() => {}}
         roomTitle={room?.title}
       />
